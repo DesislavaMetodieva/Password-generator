@@ -151,15 +151,34 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 
-function getPasswordOptions() {
+// function getPasswordOptions() {
   
 
-}
+// };
+
+
 
 // Function for getting a random element from an array
-function getRandom(passChars) {
-return pass[Math.floor(Math.random() * passNum)];
-};
+function getRandom(passChars, passNumber) {
+  
+  // var random = Math.floor(Math.random() * passNumber);
+
+  for (i = 0; i < passNumber; i++){
+   password += passChars[Math.floor(Math.random() * passChars.length)]
+ };
+ console.log(password);
+ 
+ return password;
+
+  };
+
+
+  
+  //number - duljinata na parolata
+  //vseki pyt v kraen string 
+// return passChars[Math.floor(Math.random() * passNum)];
+// return getRandom();
+ // };
 
 
 
@@ -181,12 +200,12 @@ var passNum = prompt("Please select the length of your new password (between 10 
 // // convert input to number
 passNum = parseInt(passNum);
 
-if (passNum < 10 && Number.isNaN(passNum)) {
+if (passNum < 10) {
   alert ("Password should be longer than 10 characters!");
   return "";
 };
 
-if (passNum > 64 && Number.isNaN(passNum)) {
+if (passNum > 64) {
   alert ("Password should have no more than 64 characters");
   return "";
 };
@@ -224,14 +243,12 @@ if(upperCasedCharactersChoice) {
   
 }; 
 
-
 if (!passCharacter) {
   window.alert("You need to select at least one character type, please try again");
 };
 
 
-
-  return "Random pass test";
+  return getRandom(passChars);
 
 };
 
