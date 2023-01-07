@@ -149,40 +149,17 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-
-// function getPasswordOptions() {
-  
-
-// };
-
-
-
 // Function for getting a random element from an array
 function getRandom(passChars, passNumber) {
   
-  // var random = Math.floor(Math.random() * passNumber);
+var password = "";
 
   for (i = 0; i < passNumber; i++){
    password += passChars[Math.floor(Math.random() * passChars.length)]
  };
- console.log(password);
- 
+ // console.log(password);
  return password;
-
   };
-
-
-  
-  //number - duljinata na parolata
-  //vseki pyt v kraen string 
-// return passChars[Math.floor(Math.random() * passNum)];
-// return getRandom();
- // };
-
-
-
-
 
 // Function to generate password with user input
 let generatePassword = function () {
@@ -190,10 +167,10 @@ let generatePassword = function () {
   var password = "";
   var passCharacter = "";
 
-   // list of chosen characters
-   var passChars = [];
+// list of chosen characters
+var passChars = [];
 
-    // Get the initial input of the client
+// Get the initial input of the client
 
 var passNum = prompt("Please select the length of your new password (between 10 and 64 characters long)");
 
@@ -215,7 +192,6 @@ var specialCharactersChoice = confirm("Click OK to confirm including special cha
 if (specialCharactersChoice){
   passCharacter += specialCharactersChoice;
   passChars.push(...specialCharacters);
-  
 }
 
 var numericCharactersChoice = confirm("Click OK to confirm including numeric characters");
@@ -223,7 +199,6 @@ var numericCharactersChoice = confirm("Click OK to confirm including numeric cha
 if (numericCharactersChoice) {
   passCharacter += numericCharactersChoice;
   passChars.push(...numericCharacters);
- 
 };
 
 var lowerCasedCharactersChoice = confirm("Click OK to confirm including lower cased characters");
@@ -239,16 +214,14 @@ if(upperCasedCharactersChoice) {
   passCharacter += upperCasedCharactersChoice;
   passChars.push(...upperCasedCharacters);
    // checking if I am adding the array specialCharacters successfully to the passChars array
-  console.log(passChars);
-  
+  // console.log(passChars);
 }; 
 
 if (!passCharacter) {
   window.alert("You need to select at least one character type, please try again");
 };
 
-
-  return getRandom(passChars);
+  return getRandom(passChars, passNum);
 
 };
 
@@ -260,7 +233,6 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password; // this sends the value of the password to the browser
 }
 
