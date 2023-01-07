@@ -1,5 +1,3 @@
-
-
 // Should configure exit condition to say that the user should at least a select a character type. We should configure 4 prompts for every Character type
 
 //
@@ -152,8 +150,9 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+
 function getPasswordOptions() {
-  console.log("You clicked");
+  
 
 }
 
@@ -165,17 +164,71 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
 
+  var password = "";
+  var passCharacter = "";
+
+    // Get the initial input of the client
+
+var passNum = prompt("Please select the lenght of your new password (between 10 and 64 characters long)");
+
+// // convert input to number
+passNum = parseInt(passNum);
+
+if (passNum < 10) {
+  alert ("Password should be longer than 10 characters!");
+  return "";
+};
+
+if (passNum > 64) {
+  alert ("Password should have no more than 64 characters");
+  return "";
+};
+
+var specialCharactersChoice = confirm("Click OK to confirm including special characters");
+
+if (specialCharactersChoice){
+  passCharacter += specialCharactersChoice;
+}
+
+var numericCharactersChoice = confirm("Click OK to confirm including numeric characters");
+
+if (numericCharactersChoice) {
+  passCharacter += numericCharactersChoice;
+};
+
+var lowerCasedCharactersChoice = confirm("Click OK to confirm including lower cased characters");
+
+if(lowerCasedCharactersChoice) {
+  passCharacter += lowerCasedCharactersChoice;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  return "Random pass test";
+
 }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
-  passwordText.value = password;
+  passwordText.value = password; // this sends the value of the password to the browser
 }
 
 // Add event listener to generate button
