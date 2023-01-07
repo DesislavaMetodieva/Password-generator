@@ -157,12 +157,16 @@ function getPasswordOptions() {
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom(passChars) {
+return pass[Math.floor(Math.random() * passNum)];
+};
 
-}
+
+
+
 
 // Function to generate password with user input
-function generatePassword() {
+let generatePassword = function () {
 
   var password = "";
   var passCharacter = "";
@@ -176,13 +180,6 @@ var passNum = prompt("Please select the length of your new password (between 10 
 
 // // convert input to number
 passNum = parseInt(passNum);
-
-//not needed in the requirements
-
-// if (Number.isNaN(passNum)) {
-//   alert ("Password length should be a number between 10 and 64 characters");
-//   return "";
-// }; 
 
 if (passNum < 10 && Number.isNaN(passNum)) {
   alert ("Password should be longer than 10 characters!");
@@ -198,38 +195,45 @@ var specialCharactersChoice = confirm("Click OK to confirm including special cha
 
 if (specialCharactersChoice){
   passCharacter += specialCharactersChoice;
-  passChars.push(getRandom(specialCharacters));
-  // need to find out how to link the ...choices and prompt the user if they did not select even 1 character type!!!!!!
+  passChars.push(...specialCharacters);
+  
 }
 
 var numericCharactersChoice = confirm("Click OK to confirm including numeric characters");
 
 if (numericCharactersChoice) {
   passCharacter += numericCharactersChoice;
-  passChars.push(getRandom(numericCharacters));
+  passChars.push(...numericCharacters);
+ 
 };
 
 var lowerCasedCharactersChoice = confirm("Click OK to confirm including lower cased characters");
 
 if(lowerCasedCharactersChoice) {
   passCharacter += lowerCasedCharactersChoice;
-  passChars.push(getRandom(lowerCasedCharacters));
+  passChars.push(...lowerCasedCharacters);
 };
 
 var upperCasedCharactersChoice = confirm("Click OK to confirm including upper cased characters");
 
 if(upperCasedCharactersChoice) {
   passCharacter += upperCasedCharactersChoice;
-  passChars.push(getRandom(upperCasedCharacters));
+  passChars.push(...upperCasedCharacters);
+   // checking if I am adding the array specialCharacters successfully to the passChars array
+  console.log(passChars);
+  
 }; 
+
 
 if (!passCharacter) {
   window.alert("You need to select at least one character type, please try again");
 };
 
+
+
   return "Random pass test";
 
-}
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
