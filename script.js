@@ -167,19 +167,29 @@ function generatePassword() {
   var password = "";
   var passCharacter = "";
 
+   // list of chosen characters
+   var passChars = [];
+
     // Get the initial input of the client
 
-var passNum = prompt("Please select the lenght of your new password (between 10 and 64 characters long)");
+var passNum = prompt("Please select the length of your new password (between 10 and 64 characters long)");
 
 // // convert input to number
 passNum = parseInt(passNum);
 
-if (passNum < 10) {
+//not needed in the requirements
+
+// if (Number.isNaN(passNum)) {
+//   alert ("Password length should be a number between 10 and 64 characters");
+//   return "";
+// }; 
+
+if (passNum < 10 && Number.isNaN(passNum)) {
   alert ("Password should be longer than 10 characters!");
   return "";
 };
 
-if (passNum > 64) {
+if (passNum > 64 && Number.isNaN(passNum)) {
   alert ("Password should have no more than 64 characters");
   return "";
 };
@@ -188,32 +198,34 @@ var specialCharactersChoice = confirm("Click OK to confirm including special cha
 
 if (specialCharactersChoice){
   passCharacter += specialCharactersChoice;
+  passChars.push(getRandom(specialCharacters));
+  // need to find out how to link the ...choices and prompt the user if they did not select even 1 character type!!!!!!
 }
 
 var numericCharactersChoice = confirm("Click OK to confirm including numeric characters");
 
 if (numericCharactersChoice) {
   passCharacter += numericCharactersChoice;
+  passChars.push(getRandom(numericCharacters));
 };
 
 var lowerCasedCharactersChoice = confirm("Click OK to confirm including lower cased characters");
 
 if(lowerCasedCharactersChoice) {
   passCharacter += lowerCasedCharactersChoice;
+  passChars.push(getRandom(lowerCasedCharacters));
 };
 
+var upperCasedCharactersChoice = confirm("Click OK to confirm including upper cased characters");
 
+if(upperCasedCharactersChoice) {
+  passCharacter += upperCasedCharactersChoice;
+  passChars.push(getRandom(upperCasedCharacters));
+}; 
 
-
-
-
-
-
-
-
-
-
-
+if (!passCharacter) {
+  window.alert("You need to select at least one character type, please try again");
+};
 
   return "Random pass test";
 
