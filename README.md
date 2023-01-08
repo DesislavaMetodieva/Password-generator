@@ -9,6 +9,8 @@ No need for specific installation, you need only a web browser and good internet
 # Usage
 Please follow the URL, so you can open the application: https://desislavametodieva.github.io/Password-generator/
 
+![image](https://user-images.githubusercontent.com/82023025/211187066-344f3d91-9db3-4e59-a867-360fc3deac24.png)
+
 # Credits
 No collaborators for now.
 
